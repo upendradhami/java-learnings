@@ -77,6 +77,45 @@ public class RecursionQuestion {
         }
     
     }
+
+
+
+   public static void QuickSort(int arr[], int si, int ei) {
+    if (si >= ei) return;
+
+    // Partitioning of array 
+    int pivIn = partition(arr, si, ei);
+
+    QuickSort(arr, si, pivIn - 1);
+    QuickSort(arr, pivIn + 1, ei);
+}
+
+public static int partition(int arr[], int si, int ei) {
+    int i = si - 1;        // FIX 3: Start relative to the subarray index, not -1
+    int pivot = arr[ei];
+    
+    // FIX 1 & 2: Loop only within the subarray, and compare array values instead of indices
+    for (int j = si; j < ei; j++) { 
+        if (arr[j] < pivot) { 
+            i++;
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    // Place the pivot in its correct position
+    i++;
+    int temp = arr[ei];   // FIX 4: Use arr[ei] instead of the local variable 'pivot'
+    arr[ei] = arr[i];
+    arr[i] = temp;
+
+    return i;
+}
+
+
+
+
   public static  void main(String args[]){
     // int arr[] = {1,3,5,2,5,8,9,5,4};
     //  printIndex(arr, 5, 0);
@@ -87,11 +126,16 @@ public class RecursionQuestion {
 
     // System.out.println(findlenth("abcde fghh 2lo", 0));
 
-    int newArr[] = {1,3,5,6};
-    sortArray(newArr, 0, newArr.length-1);
+    // int newArr[] = {1,3,5,6};
+    // sortArray(newArr, 0, newArr.length-1);
 
-    for(int i=0; i<newArr.length; i++){
-        System.out.print(newArr[i]+" ");
+
+    int arr[] = {6,3,9,8,2,5};
+    QuickSort(arr, 0, arr.length-1);
+    
+    for(int i=0; i<arr.length; i++){
+        System.out.print(arr[i]+" ");
     }
+
   }
 }
