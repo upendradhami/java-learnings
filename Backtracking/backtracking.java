@@ -2,6 +2,7 @@ package Backtracking;
 
 public class backtracking {
 
+  /// printing the array using backtracking concepts  =====================================================
   public static void arrBack(int[] arr, int i) {
     if (i == arr.length) {
       printArr(arr, 0);
@@ -21,7 +22,7 @@ public class backtracking {
     printArr(arr, i + 1);
   }
 
-  // printing all available substring of the array ,
+  // printing all available substring of the array ,  =====================================================
   // ie. if 'abc ' is the string then the output will be a,ab,abc,b,bc,c
   public static void printSubstring(String str, String str1, int i) {
     if (i == str.length()) {
@@ -34,6 +35,7 @@ public class backtracking {
 
   }
 
+  // permutation of all possible ways of the string  =====================================================
   public static void permutaions(String str, String str1) {
     if (str.length() == 0) {
       System.out.println(str1);
@@ -46,7 +48,7 @@ public class backtracking {
     }
   }
 
-  // N-Queens Problem
+  // N-Queens Problem                           =====================================================
   public static void NQueen(char ch[][], int row) {
     if(row == ch.length){
       System.out.println("---------------chess board -------------------");
@@ -99,28 +101,43 @@ public class backtracking {
   }
 
   static int i=0; 
-  public static void main(String args[]) {
-    int n=5;
-    char ch[][] = new char[n][n];
 
-    /// initializing the chess board 
-    for(int i=0; i<ch.length; i++){
-      for(int j=0; j<ch.length; j++){
-         ch[i][j] = 'x';
-      }
-    }
 
-    NQueen(ch, 0);
-    System.out.println("total possible ways are : " + i);
+  // printing all ways of grid traversing i.e in grid from one place to another 
+  public static int gridWays(int sr,int sc, int er, int ec){
+    if(sr ==er || sc == ec) {return 1;}
+    if(sr == er+1 )
   }
+  public static void main(String args[]) {
+   
 }
 
-// for printArr backtracking concepts
+// for printArr backtracking concepts    =====================================================
 // int arr[] = new int[5];
 // arrBack(arr,0);
 // printArr(arr,0);
 
-// for Permutation question
+
+
+
+
+// for Permutation question  =====================================================
 
 // // printSubstring("abc", new String(), 0);
 // permutaions("abc","");
+
+
+/// for N-Queen problem    =====================================================
+///  int n=5;
+    char ch[][] = new char[n][n];
+
+    /// initializing the chess board
+  //   for(int i=0; i<ch.length; i++){
+  //     for(int j=0; j<ch.length; j++){
+  //        ch[i][j] = 'x';
+  //     }
+  //   }
+
+  //   NQueen(ch, 0);
+  //   System.out.println("total possible ways are : " + i);
+  // }
